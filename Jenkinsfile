@@ -1,4 +1,4 @@
-def registry = 'https://valaxy05.jfrog.io'
+def registry = 'https://gayat.jfrog.io'
 def imageName = 'valaxy05.jfrog.io/valaxy-docker-local/ttrend'
 def version   = '2.1.4'
 pipeline {
@@ -28,10 +28,10 @@ environment {
 
     stage('SonarQube analysis') {
     environment {
-      scannerHome = tool 'valaxy-sonar-scanner'
+      scannerHome = tool 'sonar-scanner'
     }
     steps{
-    withSonarQubeEnv('valaxy-sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
+    withSonarQubeEnv('sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
       sh "${scannerHome}/bin/sonar-scanner"
     }
     }
