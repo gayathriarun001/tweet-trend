@@ -4,15 +4,16 @@ pipeline {
             label "maven"
         }
     }
-
+environment {
+    PATH = "/opt/maven/bin:$PATH"
+}
     stages {
-        stage('clone-code') {
+        stage("build"){
             steps {
-                git branch: 'main', url: 'https://github.com/gayathriarun001/tweet-trend.git'
+                sh 'mvn clean deploy'
             }
         }
-    }
-
+    } 
 }
 
 
