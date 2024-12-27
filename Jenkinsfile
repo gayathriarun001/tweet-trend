@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label "maven-slave"
+            label 'maven-slave'
         }
     }
 environment {
@@ -13,7 +13,8 @@ environment {
                 sh 'mvn clean deploy'
             }
         }
-    } 
+    
+    }
 }
 
 
