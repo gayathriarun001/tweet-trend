@@ -17,8 +17,10 @@ environment {
     PATH = "/opt/maven/bin:$PATH"
 }
     stages {
-        steps {
-            sh 'mvn clen deploy'
+        stage("build"){
+            steps {
+                sh 'mvn clen deploy'
+            }
        }
    }
 }
