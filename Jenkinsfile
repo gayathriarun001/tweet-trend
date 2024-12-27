@@ -6,12 +6,14 @@ pipeline {
     }
 
     stages {
-        stage('clone-code')
+        stage('clone-code') {
             steps {
                 git branch: 'main', url: 'https://github.com/gayathriarun001/tweet-trend.git'
             }
         }
     }
+
+}
 
 
 
