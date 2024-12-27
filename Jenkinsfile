@@ -12,4 +12,13 @@ pipeline {
             }
         }
     }
+
+environment {
+    PATH = "/opt/maven/bin:$PATH"
+}
+    stages {
+        steps {
+            sh 'mvn clen deploy'
+       }
+   }
 }
