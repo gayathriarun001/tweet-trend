@@ -1,5 +1,29 @@
 pipeline {
-    agent none
+    agent any
+    }
+environment {
+    PATH = "/opt/apache-maven-3.9.9/bin:$PATH"
+}
+    stages {
+        stage('Checkout'){
+            steps { 
+                url: 'https://github.com/gayathriarun001/tweet-trend.git',
+                branch: 'main'
+           }
+        }
+
+        stage("build"){
+            steps {
+               sh 'mvn clean deploy -Dmaven.test.skip=true'
+           }
+        }
+        stage("test"){
+            steps{
+                echo "------unit test started----"
+                sh 'mvn surefire-report:report'
+                echo "-------unit test completed----"
+            }
+        }
     }
     stage('SonarQube analysis') {
     environment {
