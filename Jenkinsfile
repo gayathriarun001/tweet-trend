@@ -7,8 +7,7 @@ environment {
     stages {
         stage('Checkout'){
             steps { 
-                url: 'https://github.com/gayathriarun001/tweet-trend.git',
-                branch: 'main'
+                git branch: 'main', url: 'https://github.com/gayathriarun001/tweet-trend.git'
            }
         }
 
